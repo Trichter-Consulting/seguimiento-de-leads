@@ -4,6 +4,7 @@ import TableCom from "../../components/Table/Table";
 import Topbar from "../../components/Topbar/Topbar";
 import styles from "../../styles/table.module.scss";
 import DropdownLocations from "../../components/DropdownSelector/DropdownLocations";
+import { Tag } from "antd";
 
 const TablePage = ({ promise }) => {
   const parsedData = JSON.parse(promise);
@@ -20,7 +21,7 @@ const TablePage = ({ promise }) => {
       <main className={styles.table_container}>
         <div className={styles.child_container}>
           <div className={styles.topbar_container}>
-            <h1>Seguimiento de leads</h1>
+            <h1>Seguimiento de leads<Tag color={'red'} style={{marginLeft: 10, marginBottom: 10}}>BETA</Tag> </h1>
             <Topbar />
             <DropdownLocations/>
           </div>
