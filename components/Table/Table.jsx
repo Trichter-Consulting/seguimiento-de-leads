@@ -79,8 +79,6 @@ const TableCom = () => {
     );
     const parseResponse = await response.json();
 
-    console.log(parseResponse);
-
     const filterResponse = parseResponse.contacts;
 
     return filterResponse;
@@ -146,8 +144,6 @@ const TableCom = () => {
   };
 
   const [keyState, setKeyState] = useState(0);
-  // console.log(keyState);
-
   const items = [
     {
       key: "1",
@@ -165,9 +161,9 @@ const TableCom = () => {
 
   const columns = [
     {
-      title: "Fecha",
+      title: "Lead",
       dataIndex: "name",
-      width: 200,
+      width: 250,
       editable: false,
     },
     // {
@@ -179,7 +175,7 @@ const TableCom = () => {
     {
       title: "Correo",
       dataIndex: "email",
-      width: 230,
+      width: 250,
       editable: true,
     },
     {
@@ -271,6 +267,7 @@ const TableCom = () => {
     {
       title: "Acciones",
       dataIndex: "operation",
+      width: 100,
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
@@ -328,7 +325,6 @@ const TableCom = () => {
   return (
     <div className={styles.main_container}>
       <Form form={form} component={false}>
-        {/* <h1>Este es un texto {textoLabel}</h1> */}
         <Skeleton
           loading={skeleton}
           active={true}
@@ -352,7 +348,7 @@ const TableCom = () => {
               onChange: cancel,
             }}
             scroll={{
-              x: 2200,
+              x: 1000,
               y: 530,
             }}
           ></Table>
