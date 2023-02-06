@@ -1,0 +1,22 @@
+#components_form_demo_normal_login .login_form {
+    max-width: 300px;
+  }
+  #components_form_demo_normal_login .login_form_forgot {
+    float: right;
+  }
+  #components_form_demo_normal_login .ant_col_rtl .login_form_forgot {
+    float: left;
+  }
+
+ .login_form_button {
+    background-color: #c49b3e;
+    width: 100%;
+    color: white;
+
+}
+.login_form_button:hover {
+    background: black !important;
+    padding: auto;
+    color: white !important;
+    border-color: #c49b3e !important;
+}
