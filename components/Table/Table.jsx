@@ -205,7 +205,7 @@ const TableCom = () => {
               null
             } else {
               return (
-                <Tag color={color} key={tag}>
+                <Tag color={color} key={tag} style={{marginBottom: 5}}>
                   {tag.toUpperCase()}
                 </Tag>
               );
