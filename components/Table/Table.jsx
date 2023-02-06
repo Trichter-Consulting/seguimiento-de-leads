@@ -201,6 +201,8 @@ const TableCom = () => {
             let color = tag == 'lead de facebook'? 'blue': 'green';
             if (tag == '[whatsapp] - contact is not registered on whatsapp') {
               null
+            } else if (tag == '[whatsapp] - phone device is disconnected'){
+              null
             } else {
               return (
                 <Tag color={color} key={tag}>

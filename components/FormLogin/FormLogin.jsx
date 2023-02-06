@@ -47,6 +47,12 @@ const FormLogin = () => {
     getServerData(values.username);
   };
 
+  // Handel button login
+  const [loadingBtn, setLoadingBtn] = useState(false);
+  const handleLoadin = () => {
+    setLoadingBtn(true)
+  }
+
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
@@ -100,7 +106,12 @@ const FormLogin = () => {
         </Form.Item> */}
 
         <Form.Item>
-          <Button htmlType="submit" className={styles.login_form_button}>
+          <Button 
+            htmlType="submit" 
+            className={styles.login_form_button} 
+            loading={loadingBtn} 
+            onClick={handleLoadin}
+          >
             Ingresar
           </Button>
         </Form.Item>
