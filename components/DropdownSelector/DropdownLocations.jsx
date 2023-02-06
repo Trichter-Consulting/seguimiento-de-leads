@@ -28,6 +28,7 @@ const DropdownLocations = () => {
       defaultValue={options[0]}
       style={{
         width: 220,
+        marginLeft: 15,
       }}
       onChange={handleChange}
       options={options}

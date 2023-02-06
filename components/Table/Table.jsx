@@ -9,6 +9,7 @@ import {
   Dropdown,
   Space,
   Skeleton,
+  Tag
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useContext, useEffect, useState } from "react";
@@ -91,8 +92,9 @@ const TableCom = () => {
         return {
           key: contacto.id,
           name: contacto.firstName + " " + contacto.lastName,
-          age: contacto.phone,
-          address: contacto.email,
+          phone: contacto.phone,
+          email: contacto.email,
+          tags: contacto.tags
         };
       });
       setData(newArr);
@@ -111,8 +113,8 @@ const TableCom = () => {
   const edit = (record) => {
     form.setFieldsValue({
       name: "",
-      age: "",
-      address: "",
+      phone: "",
+      email: "",
       ...record,
     });
     setEditingKey(record.key);
@@ -176,13 +178,13 @@ const TableCom = () => {
     // },
     {
       title: "Correo",
-      dataIndex: "age",
-      width: 200,
+      dataIndex: "email",
+      width: 230,
       editable: true,
     },
     {
       title: "Numero Telefónico",
-      dataIndex: "address",
+      dataIndex: "phone",
       width: 200,
       editable: true,
     },
@@ -193,10 +195,26 @@ const TableCom = () => {
     //   editable: true,
     // },
     {
-      title: "Temperatura",
-      dataIndex: "address",
+      title: "Tags",
+      dataIndex: "tags",
       width: 200,
-      editable: true,
+      editable: false,
+      render: (_, { tags }) => (
+        <>
+          {tags.map((tag) => {
+            let color = tag == 'lead de facebook'? 'blue': 'green';
+            if (tag == '[whatsapp] - contact is not registered on whatsapp') {
+              null
+            } else {
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            }
+          })}
+        </>
+      )
     },
     // {
     //   title: "Tiempo estimado de compra",
